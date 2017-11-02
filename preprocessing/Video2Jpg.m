@@ -7,11 +7,11 @@ video=VideoReader(data_dir);
 
 
 frame_number=floor(video.Duration * video.FrameRate);
-dir_name=video.name(1:end-4); 
-mkdir(dir_name);
+output_dir=video.name(1:end-4); 
+mkdir(output_dir);
 
 for i=1:frame_number
-    image_name=fullfile(dir_name,'\',num2str(i));
+    image_name=fullfile(output_dir,'\',num2str(i));
     image_name=strcat(image_name,'.png');
     I=read(video,i); 
     imwrite(I,image_name,'png');                   
@@ -47,5 +47,7 @@ end
 %     
 % end
 % toc;
+
+
 
 
