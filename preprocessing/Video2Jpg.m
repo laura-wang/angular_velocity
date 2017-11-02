@@ -1,9 +1,14 @@
 clc;
 clear;
 close all;
-video=VideoReader('data\M_00227.avi');
+
+data_dir='data\M_00227.avi'
+video=VideoReader(data_dir);
+
+
 frame_number=floor(video.Duration * video.FrameRate);
-dir_name=video.name(1:end-4); mkdir(dir_name);
+dir_name=video.name(1:end-4); 
+mkdir(dir_name);
 
 for i=1:frame_number
     image_name=fullfile(dir_name,'\',num2str(i));
